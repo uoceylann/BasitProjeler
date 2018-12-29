@@ -1,0 +1,68 @@
+                                            #Kullanici Giriş
+ayrac = "####################################################################################################"
+
+print(ayrac)
+print("Kayit olmak için 'Kayit ol' Giris yapmak için 'Giris yap' yazin") #Register or Login
+print(ayrac)
+
+kullaniciAdi = "" 
+sifre = ""
+
+
+tercih = input("Yapmak istediğiniz islem nedir ? (K/G) : ") #Yapılacak işlem seçimi K = kayit ol G = giris yap
+###Giriş Yapma Kodu ##############
+
+def kontrol():
+    print("Giriş yapmak ister misiniz ? (E/H) ")
+    cevap = input("Cevap: " )
+    if cevap == "E" or cevap == "e":
+        girisYap()
+    elif cevap == "H" or cevap == "h":
+        print("Programdan çıkış yapıldı!")
+    else:
+        print("Geçersiz işlem")
+
+def girisYap():
+    girisKul = input("Kullanıcı adınızı girin: " )
+    girisSifre = input("Şifrenizi girin: " )
+    if girisKul == "" and girisSifre == "":
+        print("Kullanıcı adı ve şifre boş bırakılamaz!")
+    elif girisKul == kullaniciAdi and girisSifre == sifre:
+        print("Kullanici adi ve sifre doğru")
+    elif girisKul != kullaniciAdi and girisSifre != sifre:
+        print("Kullanıcı adı ve şifre uyuşmuyor")
+    elif girisKul == kullaniciAdi and girisSifre != sifre:
+        print("Şifre uyuşmuyor")
+    elif girisKul != kullaniciAdi and girisSifre == sifre:
+        print("Kullanıcı adı uyusmuyor")
+
+        
+if tercih == "G" or tercih == "g":
+    girisYap()
+        
+#Kayit Olma kodu!!!
+if tercih == "K" or tercih == "k":
+    ### KULLANICI ADI OLUŞTURMA #####
+    kayitKul = input("Kullanici Adı: " )
+    if kayitKul != "":
+        kullaniciAdi = kayitKul #### yeni bir kullanıcı adı oluşturduk ve bunu kullanici(k1) adına eşitledik
+        print(kullaniciAdi)     #### bu sayede giriş yaparken k1'i kullanarak daha doğru bir sistem yapmış olucaz.
+    elif kayitKul == "":
+        print("Kullanici Adı bos bırakılamaz")  ### Kullanıcı adı boş bırakılamaz!!!!
+        
+        ### ŞİFRE OLUŞTURMA ####
+    kayitSif = input("Şifre: " )
+    if kayitSif != "":
+        sifre = kayitSif
+        print(sifre)
+    elif kayitSif == "":
+        print("Şifre boş bırakılamaz")
+        
+        ###KAYIT OLUŞTURULDU#######
+    if kayitKul != "" and kayitSif != "":
+        print("Hesabınız oluşturuldu!")
+        kontrol()
+    elif kayitKul == "" and kayitSif == "":
+        print("Hesabınız oluşturulamadı")
+elif tercih == "" or tercih != "K" or tercih != "k" or tercih != "G" or tercih != "g":
+    print("Geçersiz islem")
