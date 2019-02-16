@@ -66,5 +66,3 @@ if tercih == "K" or tercih == "k":
         print("Hesabınız oluşturulamadı")
 elif tercih == "" or tercih != "K" or tercih != "k" or tercih != "G" or tercih != "g":
     print("Geçersiz islem")
-
-
