@@ -1,0 +1,37 @@
+                                           #Girilen Değere Göre Geometrik Şekli Bulma
+
+cevap = input("Lütfen Dörtgen(D ya da d) mi yoksa Ucgen(U ya da u) mi olduğunu belirtin: " )
+if cevap == "D" or cevap == "d":
+    birinciKenar = int(input("İlk Kenar Uzunluğu: "))
+    ikinciKenar = int(input("İkinci Kenar Uzunluğu: "))
+    ücüncüKenar = int(input("Ücüncü Kenar Uzunluğu: "))
+    dördüncüKenar = int(input("Dördüncü Kenar Uzunluğu: "))
+
+
+
+    if birinciKenar == ikinciKenar and ücüncüKenar == dördüncüKenar and birinciKenar != dördüncüKenar:
+        print("Bu bir dikdörtgen")
+    elif birinciKenar == ücüncüKenar and ikinciKenar == dördüncüKenar and birinciKenar != dördüncüKenar:
+        print("Bu bir dikdörtgen")
+    elif birinciKenar == dördüncüKenar and ikinciKenar == ücüncüKenar and birinciKenar != ücüncüKenar:
+        print("Bu bir dikdörtgen")
+    elif birinciKenar == ikinciKenar == ücüncüKenar == dördüncüKenar:
+        print("Bu bir kare")
+    else :
+        print("Bu bir sıradan dörtgen")
+
+if cevap == "U" or cevap == "u":
+    birinciKenar = int(input("İlk Kenar Uzunluğu: "))
+    ikinciKenar = int(input("İkinci Kenar Uzunluğu: "))
+    ücüncüKenar = int(input("Ücüncü Kenar Uzunluğu: "))
+    if abs(birinciKenar-ikinciKenar) < ücüncüKenar < birinciKenar + ikinciKenar and abs(birinciKenar- ücüncüKenar) < ikinciKenar < birinciKenar + ücüncüKenar and abs(ikinciKenar-ücüncüKenar)< birinciKenar < ikinciKenar + ücüncüKenar :
+        if birinciKenar == ikinciKenar == ücüncüKenar:
+            print("Bu bir eşkenar üçgendir.")
+        elif birinciKenar == ikinciKenar or birinciKenar == ücüncüKenar or ikinciKenar == ücüncüKenar:
+            print("Bu bir ikiz kenar üçgen")
+        else :
+            print("Bu Bİr sıradan üçgen")
+    else :
+        print("Bu bir üçgen değildir")
+
+
