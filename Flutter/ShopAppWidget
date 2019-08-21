@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 void main() {
   runApp(
@@ -17,28 +18,51 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    Widget image_carousel = new Container(
+      height: 200.0,
+      child: new Carousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage("images/c1.jpg"),
+          AssetImage("images/m1.jpeg"),
+          AssetImage("images/m2.jpg"),
+          AssetImage("images/w1.jpeg"),
+          AssetImage("images/w3.jpeg"),
+          AssetImage("images/w4.jpeg"),
+        ],
+        autoplay: false,
+        animationCurve: Curves.fastOutSlowIn,
+        animationDuration: Duration(milliseconds: 1000),
+      ),
+    );
+
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0.0, //Appbarın alt kısmındaki küçük gölgeyi kaldırmaya yarar
         title: Text(
-          "FashApp",
+          "FashApp", //Uygulama başlığının ismi
         ),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.redAccent, //Appbarın rengini belirler
         actions: <Widget>[
           new IconButton(
+              //Simgeye buton özelliği ekler sadece simge için Icon(Icons.iconadi)!
               icon: Icon(
-                Icons.search,
-                color: Colors.white,
+                Icons.search, //AppBarın sağında bulunan arama butonu
+                color:
+                    Colors.white, //Arama butonun rengini değiştirebilirsiniz!
               ),
               onPressed: () {}),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart,
+                //Arama butonun yanıdna bulunan sepet simgesi
                 color: Colors.white,
               ),
               onPressed: () {}),
         ],
       ),
       drawer: new Drawer(
+        //AppBarın solunda bulunan 3 çizgi için kullanılır!
         child: new ListView(
           children: <Widget>[
             //header part
@@ -146,6 +170,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+      ),
+      body: new ListView(
+        //anasayfa(body) aşağı doğru uzayacağı için listview kullandık!
+        children: <Widget>[
+          image_carousel
+          //yukarda tanımladığımız kendi widgetimizi burada çağırdık.
+        ],
       ),
     );
   }
