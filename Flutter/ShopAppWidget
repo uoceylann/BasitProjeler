@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
+//kendi import ettiklerimi<
+import 'package:flutter_ecom/components/horizontal_listview.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -20,19 +23,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Widget image_carousel = new Container(
       height: 200.0,
+//      Burası resimlerin ne kadar büyüklükte olacağının belirlendiği yer.(İsterseniz genişlik ekleyebilirsiniz.)
       child: new Carousel(
         boxFit: BoxFit.cover,
         images: [
+          AssetImage("images/w3.jpeg"),
           AssetImage("images/c1.jpg"),
           AssetImage("images/m1.jpeg"),
           AssetImage("images/m2.jpg"),
           AssetImage("images/w1.jpeg"),
-          AssetImage("images/w3.jpeg"),
           AssetImage("images/w4.jpeg"),
         ],
         autoplay: false,
-        animationCurve: Curves.fastOutSlowIn,
-        animationDuration: Duration(milliseconds: 1000),
+//        animationCurve: Curves.fastOutSlowIn,                  Burada resimlere animasyonlu geçiş
+//        animationDuration: Duration(milliseconds: 1000),        uyguladık.
+        dotSize: 3,
+        //Telefon ekranında gözüken beyaz düğmelerin büyüklüğü
+        dotColor: Colors.redAccent,
+        //Resim altındaki düğme renklerini değiştirmeye yarar
+        dotBgColor: Colors.transparent,
+        //Bunu kapatırsanız eğer butonların arkasına siyahımsı bir box gelir!
+        //indicatorBgPadding: 7.0, //Bunu açarsanız ve yukarıdaki rengi kapatırsanız bu kod satırı arkaplan boyutunu ayarlamaya yarar!
+        dotIncreasedColor: Colors.red,
+        //Resim altındaki düğme renklerinin seçili olanını değiştirmeye yarar
+        dotIncreaseSize: 2, //Seçili olan düğmenin büyüklüğü
       ),
     );
 
@@ -174,8 +188,14 @@ class _HomePageState extends State<HomePage> {
       body: new ListView(
         //anasayfa(body) aşağı doğru uzayacağı için listview kullandık!
         children: <Widget>[
-          image_carousel
-          //yukarda tanımladığımız kendi widgetimizi burada çağırdık.
+          //image_carousel begins here
+          image_carousel,
+          new Padding(padding: const EdgeInsets.all(8.0), //Kategori yazısına padding ekledik
+          child: new Text("Categories"),
+          ),
+          //Horizontal ListView
+          HorizontalList(),
+
         ],
       ),
     );
