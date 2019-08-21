@@ -1,0 +1,152 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    ),
+  );
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: new AppBar(
+        title: Text(
+          "FashApp",
+        ),
+        backgroundColor: Colors.redAccent,
+        actions: <Widget>[
+          new IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              onPressed: () {}),
+          new IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
+              onPressed: () {}),
+        ],
+      ),
+      drawer: new Drawer(
+        child: new ListView(
+          children: <Widget>[
+            //header part
+            new UserAccountsDrawerHeader(
+              //Sol taraftaki kişiler kısmı
+              accountName: Text("Uygar Ceylan"),
+              //Burası normalde kullanıcının ismi olmalıdır!
+              accountEmail: Text("uoceylann@gmail.com"),
+              //Burası normalde kullanıcı maili olmalıdır.
+              currentAccountPicture: GestureDetector(
+                child: new CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                ),
+              ),
+              decoration: new BoxDecoration(
+                color: Colors
+                    .redAccent, // burada oluşturduğumuz useracoount un rengini değiştirdik..
+              ),
+            ),
+            //body (burası useraccountun iç kısmıdır!!)
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("Home Page"),
+                //Anasayfa butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.pinkAccent,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("My Account"),
+                //Kullanıcının jeasbı butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.pinkAccent,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("My Orders"), //Sipariş butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.shopping_basket,
+                  color: Colors.pinkAccent,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("Categoris"),
+                //Kategori butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.dashboard,
+                  color: Colors.pinkAccent,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("Favourites"),
+                //Favori ürünler butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.favorite,
+                  color: Colors.pinkAccent,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            Divider(),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("Settings"), //Ayarlar butonunun ismini oluşturduk!
+                leading: Icon(Icons
+                    .settings), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              //Tıklanıldığı zaman olacaklar kısmı süslü parantez içine yazılmalıdır.
+              child: ListTile(
+                title: Text("About"), //Hakkında butonunun ismini oluşturduk!
+                leading: Icon(
+                  Icons.help,
+                  color: Colors.blue,
+                ), //İsmin sol tarafında yer alacak simge! NOT: RENKLERİ İSTEDİĞİNİZ GİBİ DEĞİŞTİREBİLİRSİNİZ!
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
